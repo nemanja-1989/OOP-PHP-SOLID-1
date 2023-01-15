@@ -1,0 +1,21 @@
+services:
+    _defaults:
+       autowire: true
+       autoconfigure: true
+
+    zeaL\App\Controllers\:
+        resource: '../../src/zeaL/App/Controllers/'
+        public: true
+        
+    application:
+        class: zeaL\App\Core\FilmApiHttpApplication
+        public: true
+
+    zeaL\App\Api\FilmApiDataLoader:
+
+    zeaL\App\Core\DispatcherFactory:
+        arguments:
+            $routes: '%routes%'
+
+    FastRoute\Dispatcher:
+        factory: ['@zeaL\App\Core\DispatcherFactory', 'createDispatcher']

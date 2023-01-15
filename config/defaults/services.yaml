@@ -1,0 +1,25 @@
+parameters:
+    logger.filelog.path: true
+
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Psr\Log\LoggerInterface:
+        alias: logger
+
+    Monolog\Handler\StreamHandler:
+        arguments:
+            $stream: '/tmp/logger.log'
+
+
+    zeaL\App\Api\Client:
+
+    logger:
+        class: Monolog\Logger
+        arguments:
+            - 'film-api'
+            -
+               - '@Monolog\Handler\StreamHandler'

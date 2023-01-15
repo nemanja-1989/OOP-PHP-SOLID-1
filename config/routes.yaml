@@ -1,0 +1,16 @@
+
+parameters:
+    routes:
+        homepage-no-version:
+            method: GET
+            path: '/'
+            controller: '@zeaL\App\Controllers\RedirectToVersion'
+        homepage:
+            method: GET
+            path: '/v1/'
+            controller: '@zeaL\App\Controllers\Homepage'
+        details:
+            method: GET
+            path: '/v1/item/{id:\d+}'
+            controller: '@zeaL\App\Controllers\FilmDetails'
+
